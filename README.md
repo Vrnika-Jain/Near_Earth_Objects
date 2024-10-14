@@ -40,7 +40,7 @@ ad.head()
 ## Exploratory Data Analysis (EDA)
 EDA involves understanding the structure of the data and extracting meaningful insights. Here, we focus on extracting subsets of data:
 
-###Extracting NEOs and PHAs
+### Extracting NEOs and PHAs
 Functions are defined to extract NEOs, PHAs, and the intersection of both:
 ```
 def extract_neo(df):
@@ -75,13 +75,13 @@ def plot_scatter(df, params):
 
 
 ## Data Preparation
-###Extracting and Cleaning Data
+### Extracting and Cleaning Data
 The data is filtered to include only rows with non-null values for pha and neo:
 ```new_ad = ad[ad['pha'].notna()]
 new_ad = new_ad[new_ad['neo'].notna()]
 ```
 
-###Identifying Important Parameters
+### Identifying Important Parameters
 Parameters of interest are identified and their summary statistics are generated:
 ```
 param_imp = ['diameter', 'albedo', 'e', 'a', 'q', 'i', 'tp']
@@ -89,7 +89,7 @@ neo[param_imp].info()
 neo[param_imp].describe()
 ```
 
-###Handling Missing Values
+### Handling Missing Values
 Missing values are filled with the mean value of each column:
 ```
 def fill_nan(df):
@@ -120,7 +120,7 @@ plt.show()
 
 ## Model Selection and Analysis
 Various machine learning models are trained and evaluated to classify asteroids based on their characteristics.
-###Model Implementation
+### Model Implementation
 ```
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -157,7 +157,7 @@ models = {
 }
 ```
 
-###Model Evaluation
+### Model Evaluation
 The models are evaluated and their scores are plotted:
 ```
 model_scores_params_imp = model_fit_score(models, neo_params_imp)
